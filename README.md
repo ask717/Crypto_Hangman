@@ -1,4 +1,5 @@
-# Crypto_Hangman game
+### Crypto_Hangman game
+
 The classic Hangman game deployed as a smart contract on the deployed on the Blockchain
   +---+   
   |   |   
