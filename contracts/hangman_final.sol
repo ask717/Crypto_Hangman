@@ -35,39 +35,29 @@ contract Hangman {
     event GameEnded(string reason);
 
     function startGame() public {
-    require(!gameActive, "Game already in progress. End it first.");
-    
-    // Reset game state
-    gameActive = true;
-    gameStartTime = block.timestamp; // Reset start time when starting new game
-    attemptsLeft = 7;
+        require(!gameActive, "Game already in progress. End it first.");
+        gameActive = true;
+        gameStartTime = block.timestamp;
+        emit GameStarted(gameStartTime, gameDuration);
 
-    emit GameStarted(gameStartTime, gameDuration);
+        uint256 randomIndex = uint256(keccak256(abi.encodePacked(block.timestamp, msg.sender))) % wordDict.length;
+        currWord = wordDict[randomIndex];
 
-    uint256 randomIndex = uint256(keccak256(abi.encodePacked(block.timestamp, msg.sender))) % wordDict.length;
-    currWord = wordDict[randomIndex];
+        bytes memory wordBytes = bytes(currWord);
+        bytes memory hangmanBytes = new bytes(wordBytes.length * 2);
+        attemptsLeft = 7;
 
-    bytes memory wordBytes = bytes(currWord);
-    bytes memory hangmanBytes = new bytes(wordBytes.length * 2);
-
-    // Reset wrong guesses
-    for (uint8 i = 97; i <= 122; i++) {
-        wrongGuesses[bytes1(i)] = false;
-    }
-
-    for (uint i = 0; i < wordBytes.length; i++) {
-        if (wordBytes[i] == " ") {
-            hangmanBytes[i * 2] = "|";
-            hangmanBytes[i * 2 + 1] = "|";
-        } else {
-            hangmanBytes[i * 2] = "_";
-            hangmanBytes[i * 2 + 1] = " ";
+        for (uint i = 0; i < wordBytes.length; i++) {
+            if (wordBytes[i] == " ") {
+                hangmanBytes[i * 2] = "|";
+                hangmanBytes[i * 2 + 1] = "|";
+            } else {
+                hangmanBytes[i * 2] = "_";
+                hangmanBytes[i * 2 + 1] = " ";
+            }
         }
+        hangmanWord = string(hangmanBytes);
     }
-    hangmanWord = string(hangmanBytes);
-}
-
-
 
     function getGameState() public view returns (string memory, uint, string memory, string memory) {
         require(gameActive, "No active game.");
@@ -138,12 +128,10 @@ contract Hangman {
     }
 
     function quit() public {
-    require(gameActive, "No active game to end.");
-    gameActive = false;
-    gameStartTime = 0; // Reset time
-    emit GameEnded("Game over. You quit.");
-}
-
+        require(gameActive, "No active game to end.");
+        gameActive = false;
+        emit GameEnded("Game over. You quit.");
+    }
 
     function uintToString(uint256 value) internal pure returns (string memory) {
         if (value == 0) return "0";

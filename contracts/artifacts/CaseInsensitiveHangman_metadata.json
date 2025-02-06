@@ -11,51 +11,6 @@
 					{
 						"indexed": false,
 						"internalType": "string",
-						"name": "reason",
-						"type": "string"
-					}
-				],
-				"name": "GameEnded",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "startTime",
-						"type": "uint256"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "duration",
-						"type": "uint256"
-					}
-				],
-				"name": "GameStarted",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": false,
-						"internalType": "string",
-						"name": "reason",
-						"type": "string"
-					}
-				],
-				"name": "GameTimeLeft",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": false,
-						"internalType": "string",
 						"name": "hangmanWord",
 						"type": "string"
 					},
@@ -83,19 +38,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "displayTimeLeft",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "getGameState",
 				"outputs": [
 					{
@@ -113,6 +55,32 @@
 						"name": "",
 						"type": "string"
 					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getHangmanFigure",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getWrongGuesses",
+				"outputs": [
 					{
 						"internalType": "string",
 						"name": "",
@@ -155,20 +123,6 @@
 				],
 				"stateMutability": "nonpayable",
 				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "quit",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "startGame",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -184,7 +138,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/hangman_.sol": "Hangman"
+			"contracts/hangman_.sol": "CaseInsensitiveHangman"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -199,11 +153,11 @@
 	},
 	"sources": {
 		"contracts/hangman_.sol": {
-			"keccak256": "0x7e8c71ba845a55537db0f50b9d063edf37deea403cc7ca66acb7fea4a59b96de",
+			"keccak256": "0x4668a4c44b49641c82ab2e232cd95107de86f0e91bd92370e235645c1f44e87a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://43918e0e7ab1033e251faa504d3185f2ae21282e4f026a750b59c164ae631ab8",
-				"dweb:/ipfs/QmRBABZXp8L2fSvGnYxipAZgmqFE7rqpbAoZ4LvqAbTZjE"
+				"bzz-raw://40d662693ba30b478ee066954ad15d86a6d83109a45bac68d87f14968c006cca",
+				"dweb:/ipfs/QmRvhLJQF9DKPqo84JXDCPF43avg2RQJMMbtou44YGpeXJ"
 			]
 		}
 	},
