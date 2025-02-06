@@ -1,5 +1,13 @@
 # Crypto_Hangman game
 The classic Hangman game deployed as a smart contract on the deployed on the Blockchain
+  +---+   
+  |   |   
+  O   |   
+ \|/  |
+  |   |
+ / \  |   
+      |   
+=========
 
 ### Rules of the Game
 Play the hangman game by completing a secret by guessing correct letter.
