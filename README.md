@@ -3,16 +3,15 @@
 - Play the hangman game by completing a secret by guessing correct letter.
 - Each wrong guess leads to a building a component of hangman.
   
-+------+  
-
-|   |  
-
-|   O
-|  \|/
-|   |
-|  / \
-|
-========
+```plaintext
+  -----
+  |   |
+  |   O
+  |  /|\
+  |  / \
+  |
+---------
+```
 - Once the hangman is complete, you lose!
 
 
